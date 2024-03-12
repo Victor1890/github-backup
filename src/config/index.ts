@@ -17,6 +17,4 @@ const config = {
     cronTimezone: process.env.CRON_TIMEZONE || 'Atlantic Standard Time'
 }
 
-console.log('Config:', config)
-
 export default config

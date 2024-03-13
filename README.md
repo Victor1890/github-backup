@@ -43,9 +43,30 @@ There are two main folders to manage as well:
 - `./repos` that stores all the clones of the repos (private and public)
 - `./logs` that stores all the relevant info of the last batch execution
 
+
+#### Example with docker compose
+
+```yml
+services:
+  github-backup:
+    image: ulisesgascon/github-backup:latest
+    restart: unless-stopped
+    environment:
+      GITHUB_TOKEN: 'github_personal_token'
+      PASSPHRASE: 'personal_passphrase'
+      TARGET_ORGANIZATIONS: 'one_org,other_org'
+      TARGET_PUBLIC_ORGANIZATIONS: 'different_org,aditional_org'
+      TARGET_USERS: 'my_user,another_user'
+      CRON_TIME: '* 18 * * * *'
+      CRON_TIMEZONE: 'Atlantic Standard Time'
+    volumes:
+      - "./repos:/app/repos/"
+      - "./logs:/app/logs/"
+```
+
 #### I don't want to use docker...
 
-Yep, this project can be use as a regular Nodejs application, but remember to include the environmental secrets you need.
+Yep, this project can be use as a regular NAtlantic Standard Timeodejs application, but remember to include the environmental secrets you need.
 #### How to restore a repo?
 
 You will need to access the clone and push it to a new server, like:

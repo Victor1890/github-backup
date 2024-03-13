@@ -49,7 +49,7 @@ There are two main folders to manage as well:
 ```yml
 services:
   github-backup:
-    image: ulisesgascon/github-backup:latest
+    image: victor1890/github-backup:latest
     restart: unless-stopped
     environment:
       GITHUB_TOKEN: 'github_personal_token'

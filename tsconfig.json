@@ -1,35 +1,48 @@
 {
-  "compilerOptions": {
-    // Enable latest features
-    "lib": ["ESNext"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleDetection": "force",
-    "jsx": "react-jsx",
-    "allowJs": true,
-
-    "paths": {
-      "@config": ["./src/config"],
-      "@utils/*": ["./src/utils/*"],
-    },
-
-    // Bundler mode
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "noEmit": true,
-
-    // Best practices
-    "strict": true,
-    "skipLibCheck": true,
-    "noFallthroughCasesInSwitch": true,
-
-    // Some stricter flags (disabled by default)
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  },
-  "exclude": ["node_modules/**"],
-  "include": ["types/**/*.d.ts"],
-  "compileOnSave": false
+	"compilerOptions": {
+		"lib": ["es5", "es6", "dom", "es2017"],
+		"target": "ES6",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"incremental": false,
+		"outDir": "dist",
+		"rootDir": "src",
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": false,
+		"inlineSourceMap": false,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": false,
+		"noUnusedLocals": true,
+		"useUnknownInCatchVariables": false,
+		"noUnusedParameters": true,
+		"noImplicitReturns": false,
+		"noFallthroughCasesInSwitch": true,
+		"traceResolution": false,
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"pretty": true,
+		"noEmit": false,
+		"types": ["node"],
+		"typeRoots": ["node_modules/@types"],
+		"baseUrl": "src",
+		"paths": {
+			"@config": ["config"],
+			"@utils/*": ["utils/*"],
+			"@interfaces/*": ["interfaces/*"]
+		}
+	},
+	"ts-node": {
+		"files": true,
+		"require": ["tsconfig-paths/register"]
+	},
+	"include": ["src"],
+	"exclude": ["node_modules/**"],
+	"files": ["./types/env.d.ts"],
+	"compileOnSave": false
 }

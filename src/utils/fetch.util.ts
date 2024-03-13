@@ -1,19 +1,16 @@
-interface FetchOptions {
-    host: string;
-    path: string;
-    headers: HeadersInit | undefined
-}
+import { IFetchOptions } from "@interfaces/common";
+import axios from "axios";
 
-export const httpRequest = <T extends Object>(
-    options: FetchOptions
-) => new Promise<T>((resolve, reject) => {
-
+export const fetch = <T extends Object>(options: IFetchOptions): Promise<T | null> => {
     const { headers, host, path } = options
     const api = `${host}${path}`
 
-    console.log('API:', api)
-
-    fetch(api, {
-        headers: headers
-    }).then(res => res.json()).then(resolve).catch(reject)
-})
+    return new Promise((resolve) => {
+        axios.get(api, {
+            headers
+        }).then(res => resolve(res.data)).catch((e) => {
+            console.error('Error fetching data from API:', e)
+            resolve(null)
+        })
+    });
+}

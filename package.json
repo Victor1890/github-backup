@@ -1,20 +1,22 @@
 {
   "name": "github-backup",
-  "module": "src/index.ts",
-  "type": "module",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "bun run src/index.ts",
-    "build": "bun build",
-    "test": "bun test",
-    "dev": "bun --watch run src/index.ts"
+    "start": "node -r ./tsconfig-paths-bootstrap.js dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "dev": "nodemon"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "@types/bun": "latest",
+    "nodemon": "3.1.0",
+    "typescript": "5.4.2",
+    "ts-node": "10.9.2"
   },
   "dependencies": {
-    "cron": "3.1.6"
+    "axios": "1.6.7",
+    "cron": "3.1.6",
+    "dotenv": "16.4.5",
+    "tsconfig-paths": "4.2.0"
   }
 }

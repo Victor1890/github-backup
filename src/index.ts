@@ -11,21 +11,20 @@ const {
 
     const workflow = new Workflow()
 
-    if (cronTime) {
-        console.log(`Initialization trigger is programmed by Cron with pattern (${cronTime})`)
+    if (!cronTime) {
+        await workflow.repoSync()
 
-        const job = new CronJob(cronTime as string, async () => {
-            console.log(`Cron has being triggered (${cronTime})`)
-
-            await workflow.repoSync()
-
-        }, null, true, cronTimezone)
-
-        return job.start()
+        process.exit(1)
     }
 
-    await workflow.repoSync()
+    console.log(`Initialization trigger is programmed by Cron with pattern (${cronTime})`)
 
-    process.exit(1)
+    const job = new CronJob(cronTime as string, async () => {
+        console.log(`Cron has being triggered (${cronTime})`)
 
+        await workflow.repoSync()
+
+    }, null, true, cronTimezone)
+
+    return job.start();
 })()

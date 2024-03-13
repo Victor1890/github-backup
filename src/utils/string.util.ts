@@ -1,9 +1,5 @@
-import path from "path"
+import { join } from "path"
 
-export const getFullPath = (realtivePath: string): string => {
-    return path.join(process.cwd(), realtivePath)
-}
+export const getFullPath = (relativePath: string): string => join(process.cwd(), relativePath)
 
-export const stringToArray = (value = ""): string[] => {
-    return value ? value.split(',') : []
-}
+export const stringToArray = (value = ""): string[] => value ? value.split(',') : []

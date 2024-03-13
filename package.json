@@ -1,6 +1,6 @@
 {
   "name": "github-backup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "scripts": {
     "start": "node -r ./tsconfig-paths-bootstrap.js dist/index.js",

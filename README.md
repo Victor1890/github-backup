@@ -37,7 +37,7 @@ This are the environmental secrets that you can use:
 - `TARGET_PUBLIC_ORGANIZATIONS` (optional) sames as `TARGET_ORGANIZATIONS` but with public repos only as scope
 - `TARGET_USERS` (optional) sames as `TARGET_ORGANIZATIONS` but for individual users
 - `CRON_TIME` (optional) this must be a [cron valid pattern](https://www.freeformatter.com/cron-expression-generator-quartz.html). If this is present the execution will be always a CRON jobs based
-- `CRON_TIMEZONE` (optional) this must be a valid [Timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), by default is using `Europe/Madrid`
+- `CRON_TIMEZONE` (optional) this must be a valid [Timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), by default is using `Atlantic Standard Time`
 
 There are two main folders to manage as well:
 - `./repos` that stores all the clones of the repos (private and public)
